@@ -108,6 +108,12 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     @available(*, deprecated: 1.0, message: "Use `mode` instead.")
     open var isDrawSteppedEnabled: Bool { return drawSteppedEnabled }
     
+    /// If true, gradient lines are drawn instead of solid
+    open var drawGradientEnabled = false
+    
+    /// - returns: true if drawing gradeint lines is enabled, false if not.
+    open var isDrawGradientEnabled: Bool { return drawGradientEnabled }
+    
     /// The radius of the drawn circles.
     open var circleRadius = CGFloat(8.0)
     
@@ -172,6 +178,9 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     /// [1, 3, 4, 2] will paint [-   ----  -   ----  ]
     open var lineDashLengths: [CGFloat]?
     
+    /// This is the points where gradient should change color
+    open var gradientPositions: [CGFloat]?
+    
     /// Line cap type, default is CGLineCap.Butt
     open var lineCapType = CGLineCap.butt
     
@@ -211,6 +220,7 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         copy.lineCapType = lineCapType
         copy.drawCirclesEnabled = drawCirclesEnabled
         copy.drawCircleHoleEnabled = drawCircleHoleEnabled
+        copy.drawGradientEnabled = drawGradientEnabled
         copy.mode = mode
         return copy
     }

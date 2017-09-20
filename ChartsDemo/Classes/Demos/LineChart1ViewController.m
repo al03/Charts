@@ -157,7 +157,7 @@
         
         set1.lineDashLengths = @[@5.f, @2.5f];
         set1.highlightLineDashLengths = @[@5.f, @2.5f];
-        [set1 setColor:UIColor.blackColor];
+//        [set1 setColor:UIColor.blackColor];
         [set1 setCircleColor:UIColor.blackColor];
         set1.lineWidth = 1.0;
         set1.circleRadius = 3.0;
@@ -166,6 +166,9 @@
         set1.formLineDashLengths = @[@5.f, @2.5f];
         set1.formLineWidth = 1.0;
         set1.formSize = 15.0;
+        set1.drawGradientEnabled = YES;
+        set1.colors = @[[UIColor brownColor], [UIColor redColor], [UIColor greenColor], [UIColor blueColor]];
+        set1.gradientPositions = @[@20, @25, @30, @50];
         
         NSArray *gradientColors = @[
                                     (id)[ChartColorTemplates colorFromString:@"#00ff0000"].CGColor,
