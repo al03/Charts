@@ -53,14 +53,13 @@
     _chartView.drawValueAboveBarEnabled = YES;
     
     _chartView.maxVisibleCount = 60;
-    
     ChartXAxis *xAxis = _chartView.xAxis;
     xAxis.labelPosition = XAxisLabelPositionBottom;
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
     xAxis.drawGridLinesEnabled = NO;
     xAxis.granularity = 1.0; // only intervals of 1 day
     xAxis.labelCount = 7;
-    xAxis.valueFormatter = [[DayAxisValueFormatter alloc] initForChart:_chartView];
+//    xAxis.valueFormatter = [[DayAxisValueFormatter alloc] initForChart:_chartView];
     
     NSNumberFormatter *leftAxisFormatter = [[NSNumberFormatter alloc] init];
     leftAxisFormatter.minimumFractionDigits = 0;
@@ -149,6 +148,7 @@
     {
         set1 = (BarChartDataSet *)_chartView.data.dataSets[0];
         set1.values = yVals;
+        
         [_chartView.data notifyDataChanged];
         [_chartView notifyDataSetChanged];
     }
@@ -157,12 +157,11 @@
         set1 = [[BarChartDataSet alloc] initWithValues:yVals label:@"The year 2017"];
         [set1 setColors:ChartColorTemplates.material];
         set1.drawIconsEnabled = NO;
-        
         NSMutableArray *dataSets = [[NSMutableArray alloc] init];
         [dataSets addObject:set1];
         
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
-        [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10.f]];
+        [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.f]];
         
         data.barWidth = 0.9f;
         
@@ -184,6 +183,7 @@
     
     [self updateChartData];
 }
+
 
 #pragma mark - ChartViewDelegate
 
